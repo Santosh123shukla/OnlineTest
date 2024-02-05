@@ -1,0 +1,14 @@
+<!-- app/views/questions/test_result.html.erb -->
+<h1>Test Results</h1>
+<%= link_to 'Back To Home', root_path %>
+<p>Your score: <%= @score %> out of <%= @questions_with_answers.count %> questions</p>
+
+<ol>
+  <% @questions_with_answers.each_with_index do |result, index| %>
+    <li>
+      <p><strong>Question <%= index + 1 %>:</strong> <%= result[:question] %></p>
+      <p><strong>Your Answer:</strong> <%= result[:selected_option] %></p>
+      <p><strong>Correct Answer:</strong> <%= result[:correct_option] %></p>
+    </li>
+  <% end %>
+</ol>

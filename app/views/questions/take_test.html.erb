@@ -1,0 +1,20 @@
+<!-- app/views/questions/take_test.html.erb -->
+<h1>Test for <%= @subject.name %></h1>
+
+<%= form_tag(submit_test_questions_path, method: :post) do %>
+  <% @questions.each_with_index do |question, index| %>
+    <h3>Question <%= index + 1 %>:</h3>
+    <p><%= question.text %></p>
+
+    <% question.answers.each do |option| %>
+      <label>
+        <%= radio_button_tag "answers[#{question.id}]", option.id %>
+        <%= option.option %>
+      </label><br>
+    <% end %>
+
+    <hr>
+  <% end %>
+
+  <%= submit_tag 'Submit Test' %>
+<% end %>

@@ -1,0 +1,11 @@
+<div class="question-form">
+  <h1>New Question</h1>
+<%= link_to 'Download Template', download_template_questions_path %>
+<br>
+
+<%= form_tag(questions_path, multipart: true) do %>
+  <label for="file">Select Excel File:</label>
+  <%= file_field_tag 'file', id: 'file' %>
+
+  <%= submit_tag 'Upload Excel File' %>
+<% end %>

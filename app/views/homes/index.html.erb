@@ -1,0 +1,8 @@
+<%= link_to 'New Question', new_question_path %>
+
+
+
+<!-- app/views/questions/index.html.erb -->
+<% @subjects.each do |subject| %>
+  <h2><%= link_to "Take Test for #{subject.name}", take_test_questions_path(subject_id: subject.id) %></h2>
+<% end %>
